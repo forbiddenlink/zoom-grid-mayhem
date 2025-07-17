@@ -25,6 +25,17 @@
 
     <div class="zoom-window">
         <div class="window-header">
+            <!-- Add meeting status bar -->
+            <div class="meeting-status">
+                <div class="meeting-timer">
+                    <span class="timer-icon">⏱️</span>
+                    <span>1:23:45</span>
+                </div>
+                <div class="recording-status">
+                    <div class="recording-dot"></div>
+                    <span>Recording</span>
+                </div>
+            </div>
             <div class="window-title">
                 <span class="zoom-icon">📹</span>
                 Zoom Meeting - Daily Standup
@@ -38,11 +49,13 @@
         <div class="zoom-toolbar">
             <div class="toolbar-left">
                 <button class="toolbar-btn">
+                    <span class="toolbar-tooltip">Mute / Unmute Audio (Alt+A)</span>
                     <span class="btn-icon">🔇</span>
                     <span class="btn-text">Mute</span>
                     <span class="btn-caret">^</span>
                 </button>
                 <button class="toolbar-btn">
+                    <span class="toolbar-tooltip">Start / Stop Video (Alt+V)</span>
                     <span class="btn-icon">📹</span>
                     <span class="btn-text">Stop Video</span>
                     <span class="btn-caret">^</span>
@@ -50,26 +63,41 @@
             </div>
             <div class="toolbar-center">
                 <button class="toolbar-btn">
+                    <span class="toolbar-tooltip">Security Options</span>
                     <span class="btn-icon">🔒</span>
                     <span class="btn-text">Security</span>
                 </button>
                 <button class="toolbar-btn">
+                    <span class="toolbar-tooltip">View Participants (Alt+U)</span>
                     <span class="btn-icon">👥</span>
                     <span class="btn-text">Participants</span>
                 </button>
                 <button class="toolbar-btn green">
+                    <span class="toolbar-tooltip">Share Screen (Alt+S)</span>
                     <span class="btn-icon">📊</span>
                     <span class="btn-text">Share Screen</span>
                     <span class="btn-caret">^</span>
                 </button>
                 <button class="toolbar-btn">
+                    <span class="toolbar-tooltip">Chat (Alt+H)</span>
                     <span class="btn-icon">💬</span>
                     <span class="btn-text">Chat</span>
                 </button>
                 <button class="toolbar-btn">
+                    <span class="toolbar-tooltip">Reactions</span>
                     <span class="btn-icon">😊</span>
                     <span class="btn-text">Reactions</span>
                     <span class="btn-caret">^</span>
+                </button>
+                <button class="toolbar-btn active">
+                    <span class="toolbar-tooltip">Toggle Focus Mode (Alt+F)</span>
+                    <span class="btn-icon">👁️</span>
+                    <span class="btn-text">Focus</span>
+                </button>
+                <button class="toolbar-btn">
+                    <span class="toolbar-tooltip">Raise Hand (Alt+Y)</span>
+                    <span class="btn-icon">✋</span>
+                    <span class="btn-text">Raise Hand</span>
                 </button>
             </div>
             <div class="toolbar-right">
@@ -90,7 +118,7 @@
         <div class="meeting-container">
             <!-- Coffee break participant -->
             <div class="participant coffee-break">
-                <div class="coffee-avatar"></div>
+                <div class="coffee-avatar">JD</div>
                 <div class="coffee-mug">
                     <div class="steam"></div>
                     <div class="steam"></div>
@@ -111,19 +139,22 @@
                     </div>
                     <div class="connecting-text">Joining meeting...</div>
                 </div>
-                <div class="participant-avatar"></div>
+                <div class="participant-avatar">SW</div>
                 <div class="name-tag">Sarah (Joining...)</div>
                 <div class="mute-indicator">🔇</div>
             </div>
 
             <!-- Multi-tasking participant -->
-            <div class="participant multitasking">
-                <div class="multitask-avatar">
-                    <div class="glasses">
-                        <div class="reflection"></div>
-                        <div class="reflection"></div>
-                    </div>
+            <div class="participant multitasking speaking">
+                <div class="active-speaker-outline"></div>
+                <div class="network-quality">
+                    <div class="signal-bar active"></div>
+                    <div class="signal-bar active"></div>
+                    <div class="signal-bar active"></div>
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
                 </div>
+                <div class="multitask-avatar">MB</div>
                 <div class="slack-notification">💬 Meeting recorded?</div>
                 <div class="email-notification">📧 15+ unread</div>
                 <div class="calendar-notification">📅 Next call in 2m</div>
@@ -133,7 +164,7 @@
 
             <!-- Muted but talking participant -->
             <div class="participant muted-talking">
-                <div class="muted-talking-avatar"></div>
+                <div class="muted-talking-avatar">LM</div>
                 <div class="speech-bubble">Hello?</div>
                 <div class="name-tag">Lisa</div>
                 <div class="mute-indicator">🔇</div>
@@ -141,7 +172,7 @@
 
             <!-- Mechanical keyboard participant -->
             <div class="participant keyboard-typer">
-                <div class="keyboard-avatar"></div>
+                <div class="keyboard-avatar">AK</div>
                 <div class="keyboard">
                     <div class="key"></div>
                     <div class="key"></div>
@@ -171,6 +202,61 @@
                 <div class="name-tag">Emma (Interactive)</div>
                 <div class="mute-indicator unmuted">🔊</div>
             </div>
+
+            <!-- Pet cameo participant -->
+            <div class="participant pet-cameo">
+                <div class="participant-avatar">RJ</div>
+                <div class="pet-overlay">
+                    <span class="pet-emoji">🐱</span>
+                </div>
+                <div class="name-tag">Rachel (& Whiskers)</div>
+                <div class="mute-indicator">🔇</div>
+            </div>
+
+            <!-- Background blur fail participant -->
+            <div class="participant blur-fail">
+                <div class="participant-avatar">TK</div>
+                <div class="messy-room-overlay"></div>
+                <div class="name-tag">Tom (Blur not working)</div>
+                <div class="mute-indicator">🔇</div>
+            </div>
+        </div>
+
+        <!-- Add raised hands panel -->
+        <div class="raised-hands-panel">
+            <div class="raised-hand-item">
+                <div class="hand-number">1</div>
+                <span>Sarah</span>
+                <span>✋</span>
+            </div>
+            <div class="raised-hand-item">
+                <div class="hand-number">2</div>
+                <span>Mike</span>
+                <span>✋</span>
+            </div>
+            <div class="raised-hand-item">
+                <div class="hand-number">3</div>
+                <span>Lisa</span>
+                <span>✋</span>
+            </div>
+        </div>
+
+        <!-- Add quick emoji reaction bar -->
+        <div class="emoji-reaction-bar">
+            <div class="emoji-reaction" data-count="3">👍</div>
+            <div class="emoji-reaction has-reactions" data-count="5">❤️</div>
+            <div class="emoji-reaction" data-count="2">👏</div>
+            <div class="emoji-reaction has-reactions" data-count="4">🎉</div>
+            <div class="emoji-reaction">😂</div>
+            <div class="emoji-reaction">😮</div>
+            <div class="emoji-reaction">✋</div>
+            <div class="emoji-reaction">⭐</div>
+        </div>
+
+        <!-- Add connection warning -->
+        <div class="connection-warning">
+            <span class="warning-icon">⚠️</span>
+            <span>Your internet connection is unstable</span>
         </div>
     </div>
 
@@ -212,5 +298,36 @@
             <div class="time">10:30 AM</div>
         </div>
     </div>
+
+    <!-- Add share screen preview -->
+    <div class="share-preview">
+        <div class="preview-header">
+            <span>Select what to share</span>
+            <span class="close">×</span>
+        </div>
+        <div class="preview-content">
+            <div class="preview-option">
+                <span>🖥️</span>
+                <div>Screen</div>
+            </div>
+            <div class="preview-option">
+                <span>🪟</span>
+                <div>Window</div>
+            </div>
+            <div class="preview-option">
+                <span>📱</span>
+                <div>Mobile</div>
+            </div>
+            <div class="preview-option">
+                <span>📊</span>
+                <div>Whiteboard</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add some floating reactions -->
+    <div class="reaction-bubble" style="left: 20%; bottom: 40%">👍</div>
+    <div class="reaction-bubble" style="left: 45%; bottom: 60%">❤️</div>
+    <div class="reaction-bubble" style="left: 75%; bottom: 30%">👏</div>
 </body>
 </html>
